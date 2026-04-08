@@ -1,0 +1,51 @@
+#include<stdio.h> 
+#include<stdlib.h> 
+struct node{ 
+    int data; 
+    struct node *next; 
+}; 
+struct node *head=NULL; 
+void insert_begin(){ 
+    struct node *temp; 
+    int x; 
+    temp=(struct node*)malloc(sizeof(struct node)); 
+    prin ("Enter value: "); 
+    scanf("%d",&x); 
+    temp->data=x; 
+    temp->next=head; 
+    head=temp; 
+} 
+void delete_first(){ 
+    struct node *temp; 
+    if(head==NULL){ 
+        prin ("List empty\n"); 
+        return; 
+    } 
+    temp=head; 
+    head=head->next; 
+Experiment 7 : (single linked list) 
+Q1) Write a C program to perform the opera ons on a single linked list: 
+ i) Inser on at beginning, ii) Dele on of 1st node iii) display all nodes  
+    free(temp); 
+} 
+void display(){ 
+    struct node *temp=head; 
+    while(temp!=NULL){ 
+        prin ("%d ",temp->data); 
+        temp=temp->next; 
+    } 
+    prin ("\n"); 
+} 
+int main(){ 
+    int ch; 
+    while(1){ 
+        prin ("1.Insert Beginning 2.Delete First 3.Display 4.Exit\n"); 
+        scanf("%d",&ch); 
+        switch(ch){ 
+            case 1: insert_begin(); break; 
+            case 2: delete_first(); break; 
+            case 3: display(); break; 
+            case 4: exit(0); 
+        } 
+    } 
+}
